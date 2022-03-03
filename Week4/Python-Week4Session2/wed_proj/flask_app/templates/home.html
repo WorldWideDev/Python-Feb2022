@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>New Player Form</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body>
+    <h2> Win/Loss Record</h2>
+    <p>{{session.win}} W - {{session.loss}} L - {{session.tie}} T </p>
+    <table>
+        <tr>
+            <th>MAKE</th>
+            <th>YOUR</th>
+            <th>CHOICE</th>
+        </tr>
+        <tr>
+            <td>
+                <form action="/play" method="POST">
+                    <input type="hidden" name="item" value="rock">
+                    <button type="submit"><img height=100 width=100 src='{{ url_for("static", filename="img/rock.png")  }}'><p>Rock</p></button>
+                </form>
+            </td>
+            <td>
+                <form action="/play" method="POST">
+                    <input type="hidden" name="item" value="paper">
+                    <button type="submit"><img height=100 width=100 src='{{ url_for("static", filename="img/paper.png")  }}'><p>Paper</p></button>
+                </form>
+            </td>
+            <td>
+                <form action="/play" method="POST">
+                    <input type="hidden" name="item" value="scissors">
+                    <button type="submit"><img height=100 width=100 src='{{ url_for("static", filename="img/scissors.png")  }}'><p>Scissors</p></button>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+    
+    
+    
+    {% for activity in session.activity_log | reverse %}
+        <p>{{activity}}</p>
+    {% endfor %}
+
+</body>
+</html>

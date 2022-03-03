@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>New Player Form</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body>
+    <h1>{{session.playerName}}'s Profile</h1>
+    <p>Email: {{session.playerEmail}}</p>
+    <p>Age: {{session.playerAge}}</p>
+    <a href="/home">Play Game!</a>
+    <a href="/reset">Delete this player</a>
+</body>
+</html>

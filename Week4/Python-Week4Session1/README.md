@@ -22,3 +22,4 @@
     - Purpose, use cases, and datatype (dictionary)
     - Setup in server.py
     - Usage of session with inclusion of forms, templates, and redirecting
+
