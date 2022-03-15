@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Director Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{ url_for("static", filename="css/style.css")}}'>
+</head>
+<body>
+    <h1>Directors of MovieDB</h1>
+    {% for director in directors %}
+        <p><a href="/directors/{{director.id}}">{{director.first_name}} {{director.last_name}}</a></p>
+    {% endfor %}
+
+    <h2>Add a New Director</h2>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="/directors/create" method="POST">
+        <p>First Name: <input name="first_name" type="text"></p>
+        <p>Last Name: <input name="last_name" type="text"></p>
+        <button type="submit">Create a director!</button>
+    </form>
+
+
+</body>
+</html>

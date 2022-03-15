@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Director Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{ url_for("static", filename="css/style.css")}}'>
+</head>
+<body>
+    <h1>Edit {{director.first_name}} {{director.last_name}}</h1>
+    <form action="/directors/{{director.id}}/update" method="POST">
+        <input name="id" type="hidden" value="{{director.id}}">
+        <p>First Name: <input name="first_name" type="text" value="{{director.first_name}}"></p>
+        <p>Last Name: <input name="last_name" type="text" value="{{director.last_name}}"></p>
+        <button type="submit">Edit {{director.first_name}} {{director.last_name}}</button>
+    </form>
+
+</body>
+</html>

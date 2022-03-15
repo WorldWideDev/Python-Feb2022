@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Director Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{ url_for("static", filename="css/style.css")}}'>
+</head>
+<body>
+    <h1>Delete {{director.first_name}} {{director.last_name}}?</h1>
+    <form action="/directors/{{director.id}}/destroy" method="POST">
+        <input name="id" type="hidden" value="{{director.id}}">
+        <button type="submit">Delete {{director.first_name}} {{director.last_name}}</button>
+    </form>
+    <a href="/directors">View All Directors</a>
+
+</body>
+</html>
