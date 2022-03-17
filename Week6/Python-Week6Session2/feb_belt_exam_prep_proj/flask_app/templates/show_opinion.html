@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Show Opinion</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{url_for("static", filename="css/style.css")}}'>
+</head>
+<body>
+    <h1>Show Opinion</h1>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <p>Movie Title: {{opinion.movie_title}}</p>
+    <p>Opinion By: {{opinion.user.first_name}} {{opinion.user.last_name}}</p>
+    <p>Experience: {{opinion.experience}}</p>
+    <p>Date Watched: {{opinion.date_watched}}</p>
+    <p>Rating: {{opinion.rating}}</p>
+
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+
+</body>
+</html>
