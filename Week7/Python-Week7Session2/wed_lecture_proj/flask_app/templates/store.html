@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Fortnite Store</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{url_for("static", filename="css/style.css")}}'>
+</head>
+<body>
+    <h1>Welcome to the Fortnite Store</h1>
+    {% for item in items %}
+        <p>{{item.name}}</p>
+        <p class="{{item.rarity}}">Rarity: {{item.rarity}}</p>
+        <p>Cost: {{item.vBucks}} V Bucks</p>
+
+        <img src="{{item.imageUrl}}" height="300" width="300">
+    {% endfor %}
+</body>
+</html>

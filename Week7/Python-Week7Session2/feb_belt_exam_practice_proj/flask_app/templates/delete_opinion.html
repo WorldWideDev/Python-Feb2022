@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Edit New Opinion</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{url_for("static", filename="css/style.css")}}'>
+</head>
+<body>
+    <h1>Are you sure you want to delete {{opinion.movie_title}} Movie Opinion?</h1>
+    <form action="/opinions/{{opinion.id}}/destroy" method="post">
+        <input name="id" type="hidden" value="{{opinion.id}}">
+        <button type="submit">Delete This Opinion</button>
+    </form>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+
+</body>
+</html>
