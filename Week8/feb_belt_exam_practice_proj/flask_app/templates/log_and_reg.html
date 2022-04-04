@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{{url_for("static", filename="css/style.css")}}'>
+</head>
+<body>
+    <h1>Login and Registration</h1>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h2>Register</h2>
+    <form action="/users/register" method="POST">
+        <label for="first_name">First Name: </label><input name="first_name" type="text">
+        <label for="last_name">Last Name: </label><input name="last_name" type="text">
+        <label for="email">Email: </label><input name="email" type="email">
+        <label for="Password">Password: </label><input name="password" type="password">
+        <label for="Confirm Password">Confirm Password: </label><input name="confirm_password" type="password">
+        <button type="submit">Register New User!</button>
+    </form>
+    <h2>Login</h2>
+    <form action="/users/login" method="POST">
+        <label for="Email">Email: </label><input name="email" type="email">
+        <label for="password">Password: </label><input name="password" type="password">
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
